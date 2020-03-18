@@ -7,9 +7,9 @@ namespace Hnk\HnkUtilBundle\Helper;
 class DummyHelper
 {
 
-    public static function doSomething()
+    public static function returnTrue()
     {
-        die(123);
+        return true;
     }
 
 }
