@@ -16,7 +16,7 @@
   },
   "autoload" : {
     "psr-4" : {
-      "Hnk\\HnkUtilBundle" : ""
+      "Hnk\\HnkUtilBundle\\" : ""
     },
     "exclude-from-classmap": [ "/Tests/" ]
   },
