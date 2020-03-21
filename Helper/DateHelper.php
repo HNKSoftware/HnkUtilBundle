@@ -88,7 +88,9 @@ class DateHelper
      */
     public static function createDateTimeFromDatePL($datePlInput)
     {
-        return DateHelper::createDateTime($datePlInput, "d.m.Y 00:00:00");
+        $newDate = DateHelper::createDateTime($datePlInput, "d.m.Y");
+        $newDate->setTime(0, 0, 0);
+        return $newDate;
     }
     /**
      * Creates DateTime instance from Polish standard timestamp string
