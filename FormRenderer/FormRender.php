@@ -7,19 +7,31 @@ use Symfony\Component\Form\FormInterface;
 
 class FormRender
 {
-    public static function renderFormTemplate(
+    /**
+     * @param FormInterface $form
+     * @param TemplateInterface|null $template
+     * @param string $variableName
+     * @return string
+     */
+    public static function prepareFormTemplate(
         FormInterface $form,
         TemplateInterface $template = null,
         $variableName = 'form'
-    ): void {
+    ): string {
         $renderer = new FormRender();
 
-        echo '<pre>';
-        echo htmlspecialchars($renderer->getFormTemplate($form, $template ?: new BaseTemplate(), $variableName));
-        echo '</pre>';
-        exit;
+        return sprintf(
+            "<pre>%s</pre>",
+            htmlspecialchars($renderer->getFormTemplate($form, $template ?: new BaseTemplate(), $variableName))
+        );
     }
 
+    /**
+     * @param FormInterface $form
+     * @param TemplateInterface $template
+     * @param string $variableName
+     * @return string
+     */
     public function getFormTemplate(FormInterface $form, TemplateInterface $template, $variableName = 'form'): string
     {
         $html = '';
